@@ -4,7 +4,9 @@ Unfortunately PlatformIO doesn't support cross-platform compilation of code. You
 
 ## Create an image
 
-Burn a Rasbian image https://www.raspbian.org on a SDcard using the Raspbian Installer or [Balena Etcher](https://www.balena.io/etcher).
+Burn a Rasbian image https://www.raspbian.org on a SDcard using the Raspberry Pi Imager tool. Select an image of your choosing, select the SDcard mountpoint, but before writing open up the settings behind the cogwheel icon.
+
+Over there specify a username and password. SSH will not work if this is not set.
 
 ## Modify the image
 
@@ -36,6 +38,8 @@ Please check that there's only one space between rootwait and this text, otherwi
 
 ### Generate a keypair
 
+If the Pi was connected before, an update of the SSH key may be necessary.
+
 ```shell
 ssh-keygen -R raspberrypi.local
 ```
@@ -49,7 +53,7 @@ In the Network section of the System Settings you'll find a RNDIS/Ethernet Gadge
 Connect to the Pi over SSH:
 
 ```shell
-ssh pi@raspberry.local
+ssh <the configured user>@raspberrypi.local
 ```
 
 ## Internet access
