@@ -18,42 +18,19 @@ https://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&pcid=41
 Getting the value of a resistor based on colors:
 https://resistorcolorcodecalc.com
 
-## Raspberry Pi
+## Micro Controllers
 
-Identifying a Raspberry Pi model : https://www.raspberrypi-spy.co.uk/2012/09/checking-your-raspberry-pi-board-version/
+- [Raspberry Pi](./Raspberry%20Pi/README.md)
+- [Arduino](./Arduino/README.md)
+- [ESP](./ESP/README.md)
+- [micro:bit](./MicroBit/README.md)
 
-```shell
-cat /proc/device-tree/model
-```
+## Smart-Home
 
-### Raspberry Pi Pico W
+- [Lights](./Lights/README.md)
+- [Switches](./Switches/)
+- [Sensors](./Sensors/README.md)
 
-[Instructions](https://github.com/OnnoH/Hardware/tree/main/Raspberry%20Pi%20Pico%20W)
+## Other
 
-### Raspberry Pi Zero W
-
-[Instructions](https://github.com/OnnoH/Hardware/tree/main/Raspberry%20Pi%20Zero%20W)
-
-## Arduino
-
-All different types of Arduino clones collected over the years.
-
-### Wemos ESP32 OLED
-
-[Instructions](https://github.com/OnnoH/Hardware/tree/main/Wemos%20ESP32%20OLED)
-
-### Arduino Pro Micro
-
-[Instructions](https://github.com/OnnoH/Hardware/tree/main/Arduino%20Pro%20Micro)
-
-### Arduino Pro Mini
-
-[Instructions](https://github.com/OnnoH/Hardware/tree/main/Arduino%20Pro%20Mini)
-
-### Arduino Nano
-
-[Instructions](https://github.com/OnnoH/Hardware/tree/main/Arduino%20Nano)
-
-## Olimex ESP8266 EVB
-
-[Instructions](https://github.com/OnnoH/Hardware/tree/main/Olimex%20ESP8266-EVB)
+- [Printers](./Printers/README.md)
