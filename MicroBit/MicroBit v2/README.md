@@ -1,3 +1,9 @@
 # micro:bit v2
 
-![BBC micro:bit v2 pinout](./micro-bit-v2.png)
+## Pinout
+
+![BBC micro:bit v2 pinout](./microbit-v2-pinout.svg)
+
+## Features
+
+![BBC micro:bit v2 features](./microbit-v2-features.jpg)
