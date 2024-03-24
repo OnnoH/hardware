@@ -13,8 +13,6 @@ If the board doesn't come with its own USB interface, a USB to serial converter 
 
 https://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&pcid=41
 
-(Here the TX/RX are taken care of by the converter, so a power-only USB cable will suffice.)
-
 ## Components
 
 ### Resistors
