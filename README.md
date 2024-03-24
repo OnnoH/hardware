@@ -7,9 +7,13 @@ In order to access the devices from a Mac you'll need to install the appropriate
 
 https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver
 
+Also make sure you have a USB data cable (4 connected wires instead of 2) as some cables are suitable for charging only. Since you'll need to transfer your code to the board, the TX and RX (or D+/D-) wires need to be connected as well. (https://en.wikipedia.org/wiki/USB)
+
 If the board doesn't come with its own USB interface, a USB to serial converter is needed. The Prolific PL2303 is such a device and the drivers (for MacOS) are here:
 
 https://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&pcid=41
+
+(Here the TX/RX are taken care of by the converter, so a power-only USB cable will suffice.)
 
 ## Components
 
