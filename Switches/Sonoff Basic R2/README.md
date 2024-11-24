@@ -21,7 +21,7 @@ The firmware can be either EPS Home (https://esphome.io) or Tasmota (https://tas
 
 ## Procedure
 
-The following step follow the _happy path_.
+The following steps follow the _happy path_.
 
 - Disconnect the device from mains.
 - Open up the Sonoff case.
