@@ -1,0 +1,24 @@
+---
+# House style for the sketches in this repository: close to what the Arduino
+# and PlatformIO examples look like, so a sketch copied from a datasheet needs
+# as little reshuffling as possible.
+Language: Cpp
+BasedOnStyle: LLVM
+# Braces on their own line, as in every sketch here.
+BreakBeforeBraces: Allman
+IndentWidth: 2
+TabWidth: 2
+UseTab: Never
+# Sketches have long trailing comments explaining pins; leave them alone
+# instead of wrapping them.
+ColumnLimit: 0
+ReflowComments: false
+# Arduino sketches include <Arduino.h> or "Arduino.h" first on purpose and the
+# display libraries below it in a deliberate order.
+SortIncludes: Never
+AlignTrailingComments: true
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+KeepEmptyLinesAtTheStartOfBlocks: false
+PointerAlignment: Right

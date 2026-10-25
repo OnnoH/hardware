@@ -1,0 +1,16 @@
+# Every PlatformIO project in this repository, one project directory per line
+# (the directory that holds the platformio.ini). The build matrix is derived
+# from this file; ci/check-project-inventory.sh fails if the repository and
+# this list disagree, so a new board project has to be added here too.
+#
+# Blank lines and lines starting with '#' are ignored.
+
+Arduino/Arduino LilyPad
+Arduino/Arduino Nano
+Arduino/Arduino Pro Micro
+Arduino/Arduino Pro Mini
+ESP/NodeMCU Lua Amica V2 ESP8266
+ESP/Olimex ESP8266-EVB
+ESP/Wemos ESP32 OLED
+Raspberry Pi/Raspberry Pi Pico
+Raspberry Pi/Raspberry Pi Pico W
