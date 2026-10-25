@@ -24,7 +24,7 @@ jobs:
     outputs:
       matrix: ${{ steps.list.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: AC-1 the build matrix covers every platformio.ini
         run: ci/check-project-inventory.sh
@@ -45,14 +45,14 @@ jobs:
       matrix:
         project: ${{ fromJson(needs.projects.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
       - name: Cache PlatformIO toolchains
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             ~/.platformio/.cache
@@ -72,11 +72,11 @@ jobs:
     name: AC-2 clang-format
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
       - name: Install clang-format
         run: pip install "clang-format==${CLANG_FORMAT_VERSION}"
@@ -88,7 +88,7 @@ jobs:
     name: AC-3 gitleaks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # Full history: a secret removed in a later commit is still public.
           fetch-depth: 0
@@ -107,11 +107,11 @@ jobs:
     name: AC-4 dependency inventory
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
       - name: AC-4 list the declared PlatformIO dependencies
         run: ci/dependency-audit.py
