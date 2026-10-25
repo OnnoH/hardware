@@ -36,3 +36,24 @@ https://resistorcolorcodecalc.com
 ## Other
 
 - [Printers](./Printers/README.md)
+
+## Checks
+
+Every push and pull request runs the `ci` workflow: each PlatformIO project is
+built with `pio run`, the C/C++ sources are checked against `.clang-format`,
+gitleaks scans the history for secrets, and the declared library dependencies
+are listed in the run summary.
+
+Run the same checks locally:
+
+```sh
+ci/check-project-inventory.sh   # every platformio.ini is in the build matrix
+ci/check-format.sh              # clang-format --dry-run -Werror
+ci/format.sh                    # reformat in place
+ci/dependency-audit.py          # list the declared dependencies
+pio run -d "Arduino/Arduino Nano"
+```
+
+A new board project needs its directory added to
+[`ci/platformio-projects.txt`](./ci/platformio-projects.txt), otherwise the
+inventory check fails.
