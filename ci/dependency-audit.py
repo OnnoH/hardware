@@ -10,6 +10,9 @@ This is an inventory check, not a vulnerability gate: PlatformIO has no
 first-party vulnerability database, so there is nothing to compare against.
 The check fails when a manifest is missing or cannot be parsed, or when a
 project declares no platform at all.
+
+It also runs ci/check-renovate-config.sh, which checks how the dependencies of
+this repository are updated (ONN-24 AC-1 and AC-2).
 """
 
 from __future__ import annotations
@@ -71,6 +74,16 @@ def inventory(project: str) -> tuple[dict[str, list[str]], list[str]]:
     return found, problems
 
 
+def renovate_config() -> int:
+    """ONN-24 AC-1 and AC-2: the Renovate configuration of this repository."""
+    # The child writes to the same stdout; flush first so the log reads in order.
+    sys.stdout.flush()
+    return subprocess.run(
+        [str(REPO_ROOT / "ci" / "check-renovate-config.sh")],
+        check=False,
+    ).returncode
+
+
 def main() -> int:
     projects = project_dirs()
     if not projects:
@@ -118,13 +131,13 @@ def main() -> int:
         with open(summary, "a", encoding="utf-8") as handle:
             handle.write(report)
 
-    if problems:
-        for problem in problems:
-            print(f"AC-4 FAIL: {problem}", file=sys.stderr)
-        return 1
+    for problem in problems:
+        print(f"AC-4 FAIL: {problem}", file=sys.stderr)
+    if not problems:
+        print(f"AC-4 OK: dependency inventory produced for {len(projects)} projects.")
 
-    print(f"AC-4 OK: dependency inventory produced for {len(projects)} projects.")
-    return 0
+    # Run both halves before failing, so one run shows every problem.
+    return 1 if (renovate_config() or problems) else 0
 
 
 if __name__ == "__main__":
