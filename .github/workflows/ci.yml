@@ -100,8 +100,14 @@ jobs:
           tar -xzf /tmp/gitleaks.tar.gz -C /usr/local/bin gitleaks
           gitleaks version
 
-      - name: AC-3 no secrets in the working tree or the history
+      # Two passes: git mode reads commits, so it is the one that catches a
+      # secret that was committed and removed again, and it is blind to files
+      # that are not committed. no-git mode reads the checkout as it lies.
+      - name: AC-3 no secrets in the history
         run: gitleaks detect --source . --redact --no-banner --verbose
+
+      - name: AC-3 no secrets in the checked out tree
+        run: gitleaks detect --no-git --source . --redact --no-banner --verbose
 
   dependency-audit:
     name: AC-4 dependency inventory
